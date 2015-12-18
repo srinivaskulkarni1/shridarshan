@@ -1,4 +1,4 @@
-package com.shridarshan.in.services;
+package com.shridarshan.in.resources;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
