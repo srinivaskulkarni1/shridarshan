@@ -1,5 +1,7 @@
 services/target
 data/target
+pojo/target
+util/target
 .metadata
 RemoteSystemsTempFiles
 Servers

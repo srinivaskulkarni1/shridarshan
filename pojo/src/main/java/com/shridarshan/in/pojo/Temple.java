@@ -1,4 +1,4 @@
-package com.shridarshan.in.model;
+package com.shridarshan.in.pojo;
 
 public class Temple {
 	

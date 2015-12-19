@@ -10,22 +10,25 @@ import javax.ws.rs.core.MediaType;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.shridarshan.in.model.Temple;
+import com.shridarshan.in.pojo.Temple;
 import com.shridarshan.in.services.TempleService;
+import com.shridarshan.in.util.BeanConstants;
 
 @Path("/pilgrimages")
 public class PilgrimResource {
-
+	
+	private AbstractApplicationContext context;
+	
+	public PilgrimResource(){
+		context = new ClassPathXmlApplicationContext(
+				BeanConstants.SERVICES_BEAN_FILE);
+		context.registerShutdownHook();
+	}
+	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Temple> getPligrimPlaces() {
-
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext(
-				"beans.xml");
-		context.registerShutdownHook();
-		
-		TempleService templeService = (TempleService) context.getBean("templeservice");
-
-		return templeService.getTempleList(context);
+		TempleService templeService = (TempleService) context.getBean(BeanConstants.TEMPLE_SERVICE);
+		return templeService.getTempleList();
 	}
 }
