@@ -7,7 +7,7 @@
     <artifactId>services</artifactId>
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
-    <name>applogic</name>
+    <name>services</name>
 
     <build>
         <finalName>services</finalName>
