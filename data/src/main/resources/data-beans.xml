@@ -9,6 +9,7 @@
 	<import resource="classpath*:/pojo-beans.xml" />
 	
 	<bean id="dataloader" class="com.shridarshan.in.data.DataLoader" />
+	<bean id="dbconnection" class="com.shridarshan.in.data.DBConnection" />
 
 	<!-- <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> 
 		<property name="locations" value="config.properties" /> </bean> -->

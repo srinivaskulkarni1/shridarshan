@@ -18,6 +18,7 @@ import com.shridarshan.in.util.BeanConstants;
 public class PilgrimResource {
 	
 	private AbstractApplicationContext context;
+	private ITempleService templeService;
 	
 	public PilgrimResource(){
 		context = new ClassPathXmlApplicationContext(
@@ -28,7 +29,7 @@ public class PilgrimResource {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<ITemple> getPligrimPlaces() {
-		ITempleService templeService = (ITempleService) context.getBean(BeanConstants.TEMPLE_SERVICE);
+		templeService = (ITempleService) context.getBean(BeanConstants.TEMPLE_SERVICE);
 		return templeService.getTempleList();
 	}
 }

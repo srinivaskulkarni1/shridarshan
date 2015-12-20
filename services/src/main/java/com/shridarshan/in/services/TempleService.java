@@ -14,19 +14,18 @@ import com.shridarshan.in.util.BeanConstants;
 public class TempleService implements ApplicationContextAware, ITempleService {
 
 	private AbstractApplicationContext context;
-
+	private IDataLoader dataLoader;
+	
 	@Override
 	public List<ITemple> getTempleList() {
-
-		IDataLoader dataLoader = (IDataLoader) context.getBean(BeanConstants.DATA_LOADER);
-
+		this.dataLoader = (IDataLoader) context.getBean(BeanConstants.DATA_LOADER);
 		return dataLoader.getTempleList();
-
 	}
 
 	@Override
 	public void setApplicationContext(ApplicationContext applicationContext)
 			throws BeansException {
 		this.context = (AbstractApplicationContext) applicationContext;
+
 	}
 }

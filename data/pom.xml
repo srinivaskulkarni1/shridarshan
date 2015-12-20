@@ -23,7 +23,7 @@
 	</developers>
 
 	<dependencies>
-			<dependency>
+		<dependency>
 			<groupId>com.shridarshan.in</groupId>
 			<artifactId>pojo</artifactId>
 			<version>${project.version}</version>
@@ -31,6 +31,10 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.datastax.cassandra</groupId>
