@@ -20,6 +20,7 @@ import com.datastax.driver.core.querybuilder.QueryBuilder;
 import com.shridarshan.in.pojo.PojoFactory;
 import com.shridarshan.in.pojo.Temple;
 import com.shridarshan.in.util.BeanConstants;
+import com.shridarshan.in.util.DBConstants;
 
 public class DataLoader implements ApplicationContextAware {
 
@@ -35,15 +36,15 @@ public class DataLoader implements ApplicationContextAware {
 				.getBean(BeanConstants.POJO_FACTORY);
 		List<Temple> templeList = new ArrayList<Temple>();
 
-		Statement select = QueryBuilder.select().all().from("temple");
+		Statement select = QueryBuilder.select().all().from(DBConstants.TABLE_TEMPLE);
 		ResultSet results = session.execute(select);
 
 		for (Row row : results) {
 			Temple temple = pojoFactory.getTemplePojo();
-			temple.setGod(row.getString("god"));
-			temple.setDistrict(row.getString("district"));
-			temple.setPlace(row.getString("place"));
-			temple.setState(row.getString("state"));
+			temple.setGod(row.getString(DBConstants.TABLE_TEMPLE_GOD));
+			temple.setDistrict(row.getString(DBConstants.TABLE_TEMPLE_DISTRICT));
+			temple.setPlace(row.getString(DBConstants.TABLE_TEMPLE_PLACE));
+			temple.setState(row.getString(DBConstants.TABLE_TEMPLE_STATE));
 			templeList.add(temple);
 		}
 		return templeList;
@@ -59,7 +60,7 @@ public class DataLoader implements ApplicationContextAware {
 				.withLoadBalancingPolicy(
 						new TokenAwarePolicy(new DCAwareRoundRobinPolicy()))
 				.build();
-		session = cluster.connect("shridarshan");
+		session = cluster.connect(DBConstants.KEYSPACE);
 
 	}
 
