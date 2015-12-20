@@ -10,8 +10,8 @@ import javax.ws.rs.core.MediaType;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.shridarshan.in.pojo.Temple;
-import com.shridarshan.in.services.TempleService;
+import com.shridarshan.in.pojo.ITemple;
+import com.shridarshan.in.services.ITempleService;
 import com.shridarshan.in.util.BeanConstants;
 
 @Path("/pilgrimages")
@@ -27,8 +27,8 @@ public class PilgrimResource {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Temple> getPligrimPlaces() {
-		TempleService templeService = (TempleService) context.getBean(BeanConstants.TEMPLE_SERVICE);
+	public List<ITemple> getPligrimPlaces() {
+		ITempleService templeService = (ITempleService) context.getBean(BeanConstants.TEMPLE_SERVICE);
 		return templeService.getTempleList();
 	}
 }

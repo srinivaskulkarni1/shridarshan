@@ -7,17 +7,18 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.support.AbstractApplicationContext;
 
-import com.shridarshan.in.data.DataLoader;
-import com.shridarshan.in.pojo.Temple;
+import com.shridarshan.in.data.IDataLoader;
+import com.shridarshan.in.pojo.ITemple;
 import com.shridarshan.in.util.BeanConstants;
 
-public class TempleService implements ApplicationContextAware {
+public class TempleService implements ApplicationContextAware, ITempleService {
 
 	private AbstractApplicationContext context;
 
-	public List<Temple> getTempleList() {
+	@Override
+	public List<ITemple> getTempleList() {
 
-		DataLoader dataLoader = (DataLoader) context.getBean(BeanConstants.DATA_LOADER);
+		IDataLoader dataLoader = (IDataLoader) context.getBean(BeanConstants.DATA_LOADER);
 
 		return dataLoader.getTempleList();
 

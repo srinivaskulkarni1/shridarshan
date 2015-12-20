@@ -17,30 +17,31 @@ import com.datastax.driver.core.policies.DCAwareRoundRobinPolicy;
 import com.datastax.driver.core.policies.DefaultRetryPolicy;
 import com.datastax.driver.core.policies.TokenAwarePolicy;
 import com.datastax.driver.core.querybuilder.QueryBuilder;
+import com.shridarshan.in.pojo.ITemple;
 import com.shridarshan.in.pojo.PojoFactory;
-import com.shridarshan.in.pojo.Temple;
 import com.shridarshan.in.util.BeanConstants;
 import com.shridarshan.in.util.DBConstants;
 
-public class DataLoader implements ApplicationContextAware {
+public class DataLoader implements ApplicationContextAware, IDataLoader {
 
 	private AbstractApplicationContext context;
 	private Cluster cluster;
 	private Session session;
 
-	public List<Temple> getTempleList() {
+	@Override
+	public List<ITemple> getTempleList() {
 
 		connect();
 
 		PojoFactory pojoFactory = (PojoFactory) context
 				.getBean(BeanConstants.POJO_FACTORY);
-		List<Temple> templeList = new ArrayList<Temple>();
+		List<ITemple> templeList = new ArrayList<ITemple>();
 
 		Statement select = QueryBuilder.select().all().from(DBConstants.TABLE_TEMPLE);
 		ResultSet results = session.execute(select);
 
 		for (Row row : results) {
-			Temple temple = pojoFactory.getTemplePojo();
+			ITemple temple = pojoFactory.getTemplePojo();
 			temple.setGod(row.getString(DBConstants.TABLE_TEMPLE_GOD));
 			temple.setDistrict(row.getString(DBConstants.TABLE_TEMPLE_DISTRICT));
 			temple.setPlace(row.getString(DBConstants.TABLE_TEMPLE_PLACE));
