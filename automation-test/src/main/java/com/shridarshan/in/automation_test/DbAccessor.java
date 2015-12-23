@@ -3,7 +3,13 @@ package com.shridarshan.in.automation_test;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.datastax.driver.core.BoundStatement;
+import com.datastax.driver.core.PreparedStatement;
+import com.datastax.driver.core.ResultSet;
 import com.datastax.driver.core.Session;
+import com.datastax.driver.core.Statement;
+import com.datastax.driver.core.querybuilder.QueryBuilder;
+import com.shridarshan.in.util.DBConstants;
 
 public class DbAccessor {
 
@@ -21,26 +27,40 @@ public class DbAccessor {
 
 	public boolean status() {
 		if (action.equalsIgnoreCase("insert")) {
-			return true;
+			return handleInsert();
 		} else if (action.equalsIgnoreCase("clear")) {
-			return true;
+			return handleDelete();
 		}
 
+		return true;
+	}
+
+	private boolean handleDelete() {
+		String deleteQuery = "Truncate " + table + ";";
+		ResultSet resultSet = DbConnection.getSession().execute(deleteQuery);
+		return resultSet.wasApplied();
+	}
+
+	private boolean handleInsert() {
+		if (table.equals(DBConstants.TABLE_TEMPLE)) {
+			Session session = DbConnection.getSession();
+
+			PreparedStatement statement = session.prepare(
+
+			"INSERT INTO temple" + "(god, place, district, state)"
+					+ "VALUES (?,?,?,?);");
+
+			BoundStatement boundStatement = new BoundStatement(statement);
+
+			ResultSet resultSet = session
+					.execute(boundStatement.bind(values.get(0), values.get(1),
+							values.get(2), values.get(3)));
+			return resultSet.wasApplied();
+		}
 		return true;
 	}
 
 	public void setValues(List<String> values) {
 		this.values = values;
 	}
-
-	/*
-	 * public DbAccessor(String query){
-	 * 
-	 * @SuppressWarnings("unused") Session session = DbConnection.getSession();
-	 * 
-	 * } public List<Object> query(){
-	 * 
-	 * @SuppressWarnings("unused") Session session = DbConnection.getSession();
-	 * return null; }
-	 */
 }

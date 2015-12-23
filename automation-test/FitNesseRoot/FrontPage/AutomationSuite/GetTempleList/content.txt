@@ -13,7 +13,7 @@
 !4 !-Insert records-!
 !|DbAccessor                                                          |
 |action|table |values                                         |status?|
-|insert|temple|['Shri Krishna', 'Udupi', 'Udupi', 'Karnataka']|true   |
+|insert|temple|[Shri Krishna,Udupi,Udupi,Karnataka]|true   |
 
 !4 !-Execute GET call-!
 !|Query:rest request|GET    |${hostname}|${port}|${resourcePath}/pilgrimages|Temple|
