@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -26,7 +25,6 @@ import com.shridarshan.in.pojo.PojoFactory;
 import com.shridarshan.in.util.BeanConstants;
 import com.shridarshan.in.util.DBConstants;
 
-@Ignore
 @RunWith(MockitoJUnitRunner.class)
 public class DataLoaderTest {
 
@@ -49,20 +47,19 @@ public class DataLoaderTest {
 	}
 	
 	@Test
-	public void testGetTempleList(){
+	public void testGetTempleList_null(){
 		List<ITemple> templeList = new ArrayList<ITemple>();
 		ResultSet resultSet = null;
 		
 		when(context.getBean(BeanConstants.DB_CONNECTION)).thenReturn(dbConnection);
-		when(context.getBean(BeanConstants.POJO_FACTORY)).thenReturn(pojoFactory);
 		when(dbConnection.getResultSet(DBConstants.TABLE_TEMPLE)).thenReturn(resultSet);
 		
 		assertEquals(dataLoader.getTempleList(), templeList);
 		
 		verify(context, times(1)).getBean(BeanConstants.DB_CONNECTION);
-		verify(context, times(1)).getBean(BeanConstants.POJO_FACTORY);
 		verify(dbConnection, times(1)).getResultSet(DBConstants.TABLE_TEMPLE);
 	}
+
 	
 
 }

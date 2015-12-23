@@ -7,8 +7,6 @@ import com.datastax.driver.core.BoundStatement;
 import com.datastax.driver.core.PreparedStatement;
 import com.datastax.driver.core.ResultSet;
 import com.datastax.driver.core.Session;
-import com.datastax.driver.core.Statement;
-import com.datastax.driver.core.querybuilder.QueryBuilder;
 import com.shridarshan.in.util.DBConstants;
 
 public class DbAccessor {
@@ -47,7 +45,7 @@ public class DbAccessor {
 
 			PreparedStatement statement = session.prepare(
 
-			"INSERT INTO temple" + "(god, place, district, state)"
+			"INSERT INTO " + table + "(god, place, district, state)"
 					+ "VALUES (?,?,?,?);");
 
 			BoundStatement boundStatement = new BoundStatement(statement);

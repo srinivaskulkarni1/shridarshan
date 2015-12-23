@@ -9,9 +9,10 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.support.AbstractApplicationContext;
 
 import com.datastax.driver.core.ResultSet;
-import com.datastax.driver.core.Row;
+import com.datastax.driver.mapping.Mapper;
+import com.datastax.driver.mapping.Result;
 import com.shridarshan.in.pojo.ITemple;
-import com.shridarshan.in.pojo.PojoFactory;
+import com.shridarshan.in.pojo.Temple;
 import com.shridarshan.in.util.BeanConstants;
 import com.shridarshan.in.util.DBConstants;
 
@@ -19,32 +20,33 @@ public class DataLoader implements ApplicationContextAware, IDataLoader {
 
 	private AbstractApplicationContext context;
 	private IDBConnection dbConnection;
-	private PojoFactory pojoFactory;
 
 	@Override
 	public List<ITemple> getTempleList() {
 
-		dbConnection = (IDBConnection) context
-				.getBean(BeanConstants.DB_CONNECTION);
-		pojoFactory = (PojoFactory) context.getBean(BeanConstants.POJO_FACTORY);
+		dbConnection = getDBConnection();
 
 		List<ITemple> templeList = new ArrayList<ITemple>();
+		ResultSet resultSet = dbConnection
+				.getResultSet(DBConstants.TABLE_TEMPLE);
 
-		ResultSet results = dbConnection.getResultSet(DBConstants.TABLE_TEMPLE);
-		
-		if (results != null) {
-			for (Row row : results) {
-				ITemple temple = pojoFactory.getTemplePojo();
-				temple.setGod(row.getString(DBConstants.TABLE_TEMPLE_GOD));
-				temple.setDistrict(row
-						.getString(DBConstants.TABLE_TEMPLE_DISTRICT));
-				temple.setPlace(row.getString(DBConstants.TABLE_TEMPLE_PLACE));
-				temple.setState(row.getString(DBConstants.TABLE_TEMPLE_STATE));
-				templeList.add(temple);
+		if (resultSet != null) {
+			Mapper<Temple> mapper = dbConnection.getManager().mapper(
+					Temple.class);
+			Result<Temple> results = mapper.map(resultSet);
+
+			if (results != null) {
+				for (Temple temple : results) {
+					templeList.add(temple);
+				}
 			}
 		}
 		return templeList;
+	}
 
+	private IDBConnection getDBConnection() {
+		return (IDBConnection) context
+				.getBean(BeanConstants.DB_CONNECTION);
 	}
 
 	@Override

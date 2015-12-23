@@ -36,10 +36,6 @@
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-all</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>com.datastax.cassandra</groupId>
-			<artifactId>cassandra-driver-core</artifactId>
-		</dependency>
 		<!-- Spring Dependencies -->
 		<dependency>
 			<groupId>org.springframework</groupId>
