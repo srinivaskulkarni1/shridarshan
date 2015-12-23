@@ -1,8 +1,6 @@
 package com.shridarshan.in.automation_test;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import com.shridarshan.in.pojo.Temple;
 
 public class Main {

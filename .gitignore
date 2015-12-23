@@ -3,6 +3,7 @@ data/target
 pojo/target
 util/target
 automation-test/target
+shridarshan-war/target
 automation-test/FitNesseRoot/FitNesse/SuiteAcceptanceTests
 automation-test/FitNesseRoot/FitNesse/SuiteFitAcceptanceTests
 automation-test/FitNesseRoot/files/testResults
