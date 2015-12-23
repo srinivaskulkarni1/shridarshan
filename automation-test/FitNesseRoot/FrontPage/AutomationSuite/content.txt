@@ -8,6 +8,8 @@
 !*> Variables
 !define hostname (localhost)
 !define keyspace (shridarshan)
+!define port (8080)
+!define resourcePath (/shridarshan/webapi)
 !define COLLAPSE_SETUP {true}
 !define COLLAPSE_TEARDOWN {true}
 *!

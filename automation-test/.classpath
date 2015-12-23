@@ -44,4 +44,5 @@
   <classpathentry kind="var" path="M2_REPO/com/google/guava/guava/14.0.1/guava-14.0.1.jar" sourcepath="M2_REPO/com/google/guava/guava/14.0.1/guava-14.0.1-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/codahale/metrics/metrics-core/3.0.2/metrics-core-3.0.2.jar" sourcepath="M2_REPO/com/codahale/metrics/metrics-core/3.0.2/metrics-core-3.0.2-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.jar" sourcepath="M2_REPO/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/google/code/gson/gson/2.5/gson-2.5.jar" sourcepath="M2_REPO/com/google/code/gson/gson/2.5/gson-2.5-sources.jar"/>
 </classpath>

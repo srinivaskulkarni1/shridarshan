@@ -5,6 +5,7 @@ util/target
 automation-test/target
 automation-test/FitNesseRoot/FitNesse/SuiteAcceptanceTests
 automation-test/FitNesseRoot/FitNesse/SuiteFitAcceptanceTests
+automation-test/FitNesseRoot/files/testResults
 .metadata
 RemoteSystemsTempFiles
 Servers
