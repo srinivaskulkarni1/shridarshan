@@ -6,7 +6,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -23,7 +22,7 @@ import com.google.gson.Gson;
 import com.shridarshan.in.pojo.Temple;
 import com.shridarshan.in.util.DBConstants;
 
-public class RestRequest /* extends DoFixture */{
+public class RestRequest {
 
 	private String hostUrl;
 
@@ -148,65 +147,12 @@ public class RestRequest /* extends DoFixture */{
 				Temple[] temples = gson.fromJson(responseObj.getJsonResponse(),
 						Temple[].class);
 
-				//List<Temple> list = Arrays.asList(temples);
 				List<Temple> list = new ArrayList<Temple>();
 				Collections.addAll(list, temples);
 				DataCache.getCache().add(entityType, list);
 
 			}
 		}
-
-		/*
-		 * private void updateCache(RestResponseObject responseObj) { File file
-		 * = createFile(responseObj.getResponseXml());
-		 * 
-		 * JAXBContext jaxbContext; try { if
-		 * (("ContentMetadataType").equals(resourceType)) { jaxbContext =
-		 * JAXBContext.newInstance(ContentMetadataResponseType.class);
-		 * Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-		 * ContentMetadataResponseType responseType =
-		 * (ContentMetadataResponseType) jaxbUnmarshaller .unmarshal(file);
-		 * DataCacheRepository.getCacheRepository().add(resourceType,
-		 * responseType.getContentMetadata()); } else if
-		 * (("ContentInstanceMetadataType").equals(resourceType)) { jaxbContext
-		 * = JAXBContext.newInstance(ContentInstanceMetadataResponseType.class);
-		 * Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-		 * ContentInstanceMetadataResponseType responseType =
-		 * (ContentInstanceMetadataResponseType) jaxbUnmarshaller
-		 * .unmarshal(file);
-		 * DataCacheRepository.getCacheRepository().add(resourceType,
-		 * responseType.getContentInstanceMetadata()); } else if
-		 * (("ContentGroupMetadataType").equals(resourceType)) { jaxbContext =
-		 * JAXBContext.newInstance(ContentGroupMetadataResponseType.class);
-		 * Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-		 * ContentGroupMetadataResponseType responseType =
-		 * (ContentGroupMetadataResponseType) jaxbUnmarshaller .unmarshal(file);
-		 * DataCacheRepository.getCacheRepository().add(resourceType,
-		 * responseType.getContentGroupMetadata()); } else if
-		 * (("PurchasableTitleType").equals(resourceType) ||
-		 * ("PurchasableShowType").equals(resourceType) ||
-		 * ("PurchasableSeasonType").equals(resourceType) ||
-		 * ("PurchasableTitleType,PurchasableSeasonType").equals(resourceType)
-		 * || ("PurchasableTitleType,PurchasableShowType").equals(resourceType)
-		 * || ("PurchasableSeasonType,PurchasableShowType").equals(resourceType)
-		 * ||
-		 * ("PurchasableTitleType,PurchasableShowType,PurchasableSeasonType").
-		 * equals(resourceType) ||
-		 * ("ClassificationTreeType").equals(resourceType)) { jaxbContext =
-		 * JAXBContext.newInstance(ContentRetrieveDataResponseType.class);
-		 * Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-		 * ContentRetrieveDataResponseType responseType =
-		 * (ContentRetrieveDataResponseType) jaxbUnmarshaller .unmarshal(file);
-		 * DataCacheRepository.getCacheRepository().add(resourceType,
-		 * responseType); } else if
-		 * (("PurchaseOfferingType").equals(resourceType)) { jaxbContext =
-		 * JAXBContext.newInstance(OfferRetrieveDataResponseType.class);
-		 * Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-		 * OfferRetrieveDataResponseType responseType =
-		 * (OfferRetrieveDataResponseType) jaxbUnmarshaller .unmarshal(file);
-		 * DataCacheRepository.getCacheRepository().add(resourceType,
-		 * responseType); } } catch (JAXBException e) { e.printStackTrace(); } }
-		 */
 
 		private HttpUriRequest getHttpUriRequest(String url) throws IOException {
 			HttpUriRequest httpUriRequest = null;
