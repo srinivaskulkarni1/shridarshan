@@ -153,7 +153,7 @@ public class RestRequest {
 
 			}
 		}
-
+ 
 		private HttpUriRequest getHttpUriRequest(String url) throws IOException {
 			HttpUriRequest httpUriRequest = null;
 			if (this.httpMethod.equals("GET")) {
