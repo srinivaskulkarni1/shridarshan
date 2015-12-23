@@ -1,0 +1,7 @@
+!|Import|
+|com.shridarshan.in.automation_test|
+|com.shridarshan.in.data|
+|com.shridarshan.in.pojo|
+|com.shridarshan.in.resources|
+|com.shridarshan.in.services|
+|com.shridarshan.in.util|

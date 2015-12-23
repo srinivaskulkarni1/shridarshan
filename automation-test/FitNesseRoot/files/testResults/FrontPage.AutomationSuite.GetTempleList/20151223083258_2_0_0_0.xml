@@ -1,0 +1,317 @@
+<?xml version="1.0"?>
+<testResults>
+  <FitNesseVersion>v20150814</FitNesseVersion>
+  <rootPath>FrontPage.AutomationSuite.GetTempleList</rootPath>
+    <result>
+    <counts>
+      <right>0</right>
+      <wrong>0</wrong>
+      <ignores>0</ignores>
+      <exceptions>0</exceptions>
+    </counts>
+   <runTimeInMillis>429</runTimeInMillis>
+    <content></content>
+    <relativePageName>SuiteSetUp</relativePageName>
+            <instructions>
+            <instructionResult>
+        <instruction>{id='import_0_0', instruction='import', path='com.shridarshan.in.automation_test'}</instruction>
+        <slimResult>pass(com.shridarshan.in.automation_test)</slimResult>
+                <expectation>
+                    <status>pass</status>
+                    <instructionId>import_0_0</instructionId>
+                    <col>0</col>
+                              <row>1</row>
+                    <type>ImportExpectation</type>
+                                        <evaluationMessage>com.shridarshan.in.automation_test</evaluationMessage>
+                  </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='import_0_1', instruction='import', path='com.shridarshan.in.data'}</instruction>
+        <slimResult>pass(com.shridarshan.in.data)</slimResult>
+                <expectation>
+                    <status>pass</status>
+                    <instructionId>import_0_1</instructionId>
+                    <col>0</col>
+                              <row>2</row>
+                    <type>ImportExpectation</type>
+                                        <evaluationMessage>com.shridarshan.in.data</evaluationMessage>
+                  </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='import_0_2', instruction='import', path='com.shridarshan.in.pojo'}</instruction>
+        <slimResult>pass(com.shridarshan.in.pojo)</slimResult>
+                <expectation>
+                    <status>pass</status>
+                    <instructionId>import_0_2</instructionId>
+                    <col>0</col>
+                              <row>3</row>
+                    <type>ImportExpectation</type>
+                                        <evaluationMessage>com.shridarshan.in.pojo</evaluationMessage>
+                  </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='import_0_3', instruction='import', path='com.shridarshan.in.resources'}</instruction>
+        <slimResult>pass(com.shridarshan.in.resources)</slimResult>
+                <expectation>
+                    <status>pass</status>
+                    <instructionId>import_0_3</instructionId>
+                    <col>0</col>
+                              <row>4</row>
+                    <type>ImportExpectation</type>
+                                        <evaluationMessage>com.shridarshan.in.resources</evaluationMessage>
+                  </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='import_0_4', instruction='import', path='com.shridarshan.in.services'}</instruction>
+        <slimResult>pass(com.shridarshan.in.services)</slimResult>
+                <expectation>
+                    <status>pass</status>
+                    <instructionId>import_0_4</instructionId>
+                    <col>0</col>
+                              <row>5</row>
+                    <type>ImportExpectation</type>
+                                        <evaluationMessage>com.shridarshan.in.services</evaluationMessage>
+                  </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='import_0_5', instruction='import', path='com.shridarshan.in.util'}</instruction>
+        <slimResult>pass(com.shridarshan.in.util)</slimResult>
+                <expectation>
+                    <status>pass</status>
+                    <instructionId>import_0_5</instructionId>
+                    <col>0</col>
+                              <row>6</row>
+                    <type>ImportExpectation</type>
+                                        <evaluationMessage>com.shridarshan.in.util</evaluationMessage>
+                  </expectation>
+              </instructionResult>
+          </instructions>
+      </result>
+    <result>
+    <counts>
+      <right>2</right>
+      <wrong>0</wrong>
+      <ignores>0</ignores>
+      <exceptions>0</exceptions>
+    </counts>
+   <runTimeInMillis>383</runTimeInMillis>
+    <content>&lt;br/&gt;&lt;table&gt;
+	&lt;tr class="slimRowTitle"&gt;
+		&lt;td&gt;Import&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor0"&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;com.shridarshan.in.automation_test&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor1"&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;com.shridarshan.in.data&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor0"&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;com.shridarshan.in.pojo&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor1"&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;com.shridarshan.in.resources&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor0"&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;com.shridarshan.in.services&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor1"&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;com.shridarshan.in.util&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;&lt;br/&gt;&lt;h4&gt;DBConnection&lt;/h4&gt;
+&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td colspan="2"&gt;&lt;span class="pass"&gt;DbConnection&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;host name&lt;/td&gt;
+		&lt;td&gt;keyspace&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;localhost&lt;/td&gt;
+		&lt;td&gt;shridarshan&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;&lt;h4&gt;Clear DB&lt;/h4&gt;
+&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td colspan="3"&gt;&lt;span class="pass"&gt;DbAccessor&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;action&lt;/td&gt;
+		&lt;td&gt;table&lt;/td&gt;
+		&lt;td&gt;status?&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;clear&lt;/td&gt;
+		&lt;td&gt;temple&lt;/td&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;true&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;&lt;h4&gt;Insert records&lt;/h4&gt;
+&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td colspan="4"&gt;&lt;span class="pass"&gt;DbAccessor&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;action&lt;/td&gt;
+		&lt;td&gt;table&lt;/td&gt;
+		&lt;td&gt;values&lt;/td&gt;
+		&lt;td&gt;status?&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;insert&lt;/td&gt;
+		&lt;td&gt;temple&lt;/td&gt;
+		&lt;td&gt;['Shri Krishna', 'Udupi', 'Udupi', 'Karnataka']&lt;/td&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;true&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+</content>
+    <relativePageName>GetTempleList</relativePageName>
+            <instructions>
+            <instructionResult>
+        <instruction>{id='decisionTable_0_0', instruction='make', instanceName='decisionTable_0', className='DbConnection', args=[]}</instruction>
+        <slimResult>pass(DbConnection)</slimResult>
+                <expectation>
+                    <status>pass</status>
+                    <instructionId>decisionTable_0_0</instructionId>
+                    <col>0</col>
+                              <row>0</row>
+                    <type>ConstructionExpectation</type>
+                                        <evaluationMessage>DbConnection</evaluationMessage>
+                  </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='decisionTable_0_4', instruction='call', instanceName='decisionTable_0', methodName='setHostName', args=[localhost]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <instructionId>decisionTable_0_4</instructionId>
+                    <col>0</col>
+                              <row>2</row>
+                    <type>VoidReturnExpectation</type>
+                                      </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='decisionTable_0_5', instruction='call', instanceName='decisionTable_0', methodName='setKeyspace', args=[shridarshan]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <instructionId>decisionTable_0_5</instructionId>
+                    <col>1</col>
+                              <row>2</row>
+                    <type>VoidReturnExpectation</type>
+                                      </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='decisionTable_1_0', instruction='make', instanceName='decisionTable_1', className='DbAccessor', args=[]}</instruction>
+        <slimResult>pass(DbAccessor)</slimResult>
+                <expectation>
+                    <status>pass</status>
+                    <instructionId>decisionTable_1_0</instructionId>
+                    <col>0</col>
+                              <row>0</row>
+                    <type>ConstructionExpectation</type>
+                                        <evaluationMessage>DbAccessor</evaluationMessage>
+                  </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='decisionTable_1_4', instruction='call', instanceName='decisionTable_1', methodName='setAction', args=[clear]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <instructionId>decisionTable_1_4</instructionId>
+                    <col>0</col>
+                              <row>2</row>
+                    <type>VoidReturnExpectation</type>
+                                      </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='decisionTable_1_5', instruction='call', instanceName='decisionTable_1', methodName='setTable', args=[temple]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <instructionId>decisionTable_1_5</instructionId>
+                    <col>1</col>
+                              <row>2</row>
+                    <type>VoidReturnExpectation</type>
+                                      </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='decisionTable_1_7', instruction='call', instanceName='decisionTable_1', methodName='status', args=[]}</instruction>
+        <slimResult>pass(true)</slimResult>
+                <expectation>
+                    <status>pass</status>
+                    <instructionId>decisionTable_1_7</instructionId>
+                    <col>2</col>
+                              <row>2</row>
+                    <type>ReturnedValueExpectation</type>
+                                        <evaluationMessage>true</evaluationMessage>
+                  </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='decisionTable_2_0', instruction='make', instanceName='decisionTable_2', className='DbAccessor', args=[]}</instruction>
+        <slimResult>pass(DbAccessor)</slimResult>
+                <expectation>
+                    <status>pass</status>
+                    <instructionId>decisionTable_2_0</instructionId>
+                    <col>0</col>
+                              <row>0</row>
+                    <type>ConstructionExpectation</type>
+                                        <evaluationMessage>DbAccessor</evaluationMessage>
+                  </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='decisionTable_2_4', instruction='call', instanceName='decisionTable_2', methodName='setAction', args=[insert]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <instructionId>decisionTable_2_4</instructionId>
+                    <col>0</col>
+                              <row>2</row>
+                    <type>VoidReturnExpectation</type>
+                                      </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='decisionTable_2_5', instruction='call', instanceName='decisionTable_2', methodName='setTable', args=[temple]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <instructionId>decisionTable_2_5</instructionId>
+                    <col>1</col>
+                              <row>2</row>
+                    <type>VoidReturnExpectation</type>
+                                      </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='decisionTable_2_6', instruction='call', instanceName='decisionTable_2', methodName='setValues', args=[['Shri Krishna', 'Udupi', 'Udupi', 'Karnataka']]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <instructionId>decisionTable_2_6</instructionId>
+                    <col>2</col>
+                              <row>2</row>
+                    <type>VoidReturnExpectation</type>
+                                      </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='decisionTable_2_8', instruction='call', instanceName='decisionTable_2', methodName='status', args=[]}</instruction>
+        <slimResult>pass(true)</slimResult>
+                <expectation>
+                    <status>pass</status>
+                    <instructionId>decisionTable_2_8</instructionId>
+                    <col>3</col>
+                              <row>2</row>
+                    <type>ReturnedValueExpectation</type>
+                                        <evaluationMessage>true</evaluationMessage>
+                  </expectation>
+              </instructionResult>
+          </instructions>
+      </result>
+    <executionLog>
+    <testSystem>slim:fitnesse.slim.SlimService</testSystem>
+    <command>"C:\Program Files\Java\jdk1.7.0_65\bin\java" -cp target\lib\fitnesse-20150814-standalone.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\aopalliance-1.0.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\cassandra-driver-core-2.1.9.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\commons-codec-1.4.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\commons-collections-3.2.1.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\commons-lang-2.6.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\commons-logging-1.1.3.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\data-0.0.1-SNAPSHOT.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\diffutils-1.3.0.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\fitlibrary-20080812.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\fitnesse-20080812.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\fitnesse-20150814-standalone.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\guava-14.0.1.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\hamcrest-core-1.3.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\htmllexer-2.1.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\htmlparser-2.1.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\httpclient-4.1.3.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\httpcore-4.1.4.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\JavaEWAH-0.7.9.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\jsch-0.1.50.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\json-20140107.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\junit-4.11.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\metrics-core-3.0.2.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\mockito-all-1.9.5.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\netty-buffer-4.0.27.Final.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\netty-codec-4.0.27.Final.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\netty-common-4.0.27.Final.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\netty-handler-4.0.27.Final.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\netty-transport-4.0.27.Final.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\org.eclipse.jgit-3.6.2.201501210735-r.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\pojo-0.0.1-SNAPSHOT.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\slf4j-api-1.7.5.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\spring-aop-4.1.1.RELEASE.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\spring-beans-4.1.1.RELEASE.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\spring-context-4.1.1.RELEASE.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\spring-core-4.1.1.RELEASE.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\spring-expression-4.1.1.RELEASE.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\spring-web-4.1.1.RELEASE.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\spring-webmvc-4.1.1.RELEASE.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\util-0.0.1-SNAPSHOT.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\velocity-1.7.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\shridarshan.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\shridarshan-test.zip fitnesse.slim.SlimService 8085</command>
+    <exitCode>0</exitCode>
+    <stdOut></stdOut>    <stdErr></stdErr>  </executionLog>
+  <finalCounts>
+    <right>2</right>
+    <wrong>0</wrong>
+    <ignores>0</ignores>
+    <exceptions>0</exceptions>
+  </finalCounts>
+  <totalRunTimeInMillis>1791</totalRunTimeInMillis>
+</testResults>
+

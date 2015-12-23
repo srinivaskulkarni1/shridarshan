@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<suiteResults>
+  <FitNesseVersion>v20150814</FitNesseVersion>
+  <rootPath>FrontPage.AutomationSuite</rootPath>
+  <pageHistoryReference>
+    <name>FrontPage.AutomationSuite.GetTempleList</name>
+    <date>12/23/2015 00:30:48</date>
+    <pageHistoryLink>FrontPage.AutomationSuite.GetTempleList?pageHistory&amp;resultDate=20151223003048</pageHistoryLink>
+    <counts>
+      <right>0</right>
+      <wrong>0</wrong>
+      <ignores>0</ignores>
+      <exceptions>0</exceptions>
+    </counts>
+    <runTimeInMillis>62</runTimeInMillis>
+  </pageHistoryReference>
+  <executionLog>
+    <testSystem>slim:fitnesse.slim.SlimService</testSystem>
+    <command>"C:\Program Files\Java\jdk1.7.0_65\bin\java" -cp target\lib\fitnesse-20150814-standalone.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\commons-codec-1.4.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\commons-collections-3.2.1.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\commons-lang-2.6.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\commons-logging-1.1.3.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\diffutils-1.3.0.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\fitlibrary-20080812.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\fitnesse-20080812.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\fitnesse-20150814-standalone.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\htmllexer-2.1.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\htmlparser-2.1.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\httpclient-4.1.3.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\httpcore-4.1.4.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\JavaEWAH-0.7.9.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\jsch-0.1.50.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\json-20140107.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\org.eclipse.jgit-3.6.2.201501210735-r.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\velocity-1.7.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\shridarshan.jar;C:\Srinivas\study\Projects\shridarshan\automation-test\target\lib\shridarshan-test.zip fitnesse.slim.SlimService 8086</command>
+    <exitCode>0</exitCode>
+    <stdOut></stdOut>    <stdErr></stdErr>  </executionLog>
+  <finalCounts>
+    <right>0</right>
+    <wrong>0</wrong>
+    <ignores>1</ignores>
+    <exceptions>0</exceptions>
+  </finalCounts>
+  <totalRunTimeInMillis>2423</totalRunTimeInMillis>
+</suiteResults>
+

@@ -23,6 +23,7 @@
 		<module>pojo</module>
  		<module>services</module>
     <module>util</module>
+    <module>automation-test</module>
   </modules>
 	
 	<build>

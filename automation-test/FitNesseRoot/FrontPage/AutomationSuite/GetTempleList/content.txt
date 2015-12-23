@@ -1,0 +1,16 @@
+#!define COMMAND_PATTERN {java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=4949 -cp %p %m}
+
+!4 !-DBConnection-!
+!| DbConnection|
+|host name|keyspace|
+|${hostname}|${keyspace}|
+
+!4 !-Clear DB-!
+!|DbAccessor|
+|action|table|status?|
+|clear|temple|true|
+
+!4 !-Insert records-!
+!|DbAccessor|
+|action|table|values|status?|
+|insert|temple|['Shri Krishna', 'Udupi', 'Udupi', 'Karnataka']|true|

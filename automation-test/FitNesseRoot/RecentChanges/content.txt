@@ -1,0 +1,4 @@
+|FrontPage.AutomationSuite.GetTempleList||08:32:54 Wed, Dec 23, 2015|
+|FrontPage.AutomationSuite.SuiteSetUp||02:06:55 Wed, Dec 23, 2015|
+|FrontPage.AutomationSuite||24:32:41 Wed, Dec 23, 2015|
+|AutomationSuite||23:32:27 Tue, Dec 22, 2015|

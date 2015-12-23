@@ -1,0 +1,16 @@
+!define TEST_SYSTEM {slim}
+
+!*> Path
+!path target/lib/*.jar
+!path target/*.jar
+!path target/lib/*.zip
+*!
+!*> Variables
+!define hostname (localhost)
+!define keyspace (shridarshan)
+!define COLLAPSE_SETUP {true}
+!define COLLAPSE_TEARDOWN {true}
+*!
+
+!1 Automation Test suite
+!contents -R2 -g -p -f -h
