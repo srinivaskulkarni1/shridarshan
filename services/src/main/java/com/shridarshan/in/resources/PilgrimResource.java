@@ -35,7 +35,7 @@ public class PilgrimResource {
 			context = new ClassPathXmlApplicationContext(
 					BeanConstants.SERVICES_BEAN_FILE);
 		} catch (BeansException e) {
-			LOGGER.error(LogConstants.MARKER, "Failed to load conext | {}", e.getMessage());
+			LOGGER.error(LogConstants.MARKER_FATAL, "Failed to load conext | {}", e.getMessage());
 		}
 		context.registerShutdownHook();
 		LOGGER.debug("Initialized | {}", PilgrimResource.class.getName());

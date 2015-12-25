@@ -7,14 +7,15 @@
 	xmlns:context="http://www.springframework.org/schema/context">
 
 	<import resource="classpath*:/pojo-beans.xml" />
-	
+	<import resource="classpath*:/util-beans.xml" />
+
 	<bean id="dataloader" class="com.shridarshan.in.data.DataLoader" />
 	<bean id="dbconnection" class="com.shridarshan.in.data.DBConnection" />
 
 	<!-- <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> 
 		<property name="locations" value="config.properties" /> </bean> -->
 
- 	<context:annotation-config />
+	<context:annotation-config />
 	<context:component-scan base-package="com.shridarshan.in.data" />
 
 </beans>

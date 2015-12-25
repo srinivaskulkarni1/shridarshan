@@ -4,6 +4,6 @@ import org.slf4j.Marker;
 import org.slf4j.MarkerFactory;
 
 public class LogConstants {
-	public static final Marker MARKER = MarkerFactory.getMarker("FATAL");
+	public static final Marker MARKER_FATAL = MarkerFactory.getMarker("FATAL");
 
 }

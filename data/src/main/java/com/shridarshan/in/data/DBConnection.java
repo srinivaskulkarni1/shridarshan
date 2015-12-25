@@ -7,12 +7,17 @@ import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.ResultSet;
 import com.datastax.driver.core.Session;
 import com.datastax.driver.core.Statement;
+import com.datastax.driver.core.exceptions.AuthenticationException;
+import com.datastax.driver.core.exceptions.InvalidQueryException;
+import com.datastax.driver.core.exceptions.NoHostAvailableException;
 import com.datastax.driver.core.policies.DCAwareRoundRobinPolicy;
 import com.datastax.driver.core.policies.DefaultRetryPolicy;
 import com.datastax.driver.core.policies.TokenAwarePolicy;
 import com.datastax.driver.core.querybuilder.QueryBuilder;
 import com.datastax.driver.mapping.MappingManager;
+import com.shridarshan.in.util.Configuration;
 import com.shridarshan.in.util.DBConstants;
+import com.shridarshan.in.util.LogConstants;
 
 public class DBConnection implements IDBConnection {
 
@@ -20,6 +25,18 @@ public class DBConnection implements IDBConnection {
 	private Session session;
 	private MappingManager manager;
 	private static Logger LOGGER = LoggerFactory.getLogger(DBConnection.class);
+	private final static Integer DEFAULT_MAX_RETRIES = 3;
+	private final static Integer DEFAULT_DELAY = 10;
+	private static int retryAttempts;
+	private static int retryDelay;
+
+	static {
+
+		retryAttempts = getRetryAttempts(Configuration
+				.getProperty(Configuration.DB_CONNECT_RETRY_ATTEMPTS));
+		retryDelay = getRetryDelay(Configuration
+				.getProperty(Configuration.DB_CONNECT_RETRY_DELAY));
+	}
 
 	@Override
 	public MappingManager getManager() {
@@ -41,8 +58,12 @@ public class DBConnection implements IDBConnection {
 	@Override
 	@SuppressWarnings("deprecation")
 	public void connect() {
+		int retryCount = 0;
+		boolean isConnected = false;
 
-		if (cluster == null) {
+		while (!isConnected && retryCount < retryAttempts) {
+			retryCount++;
+
 			LOGGER.info("Initializing database on host | {} | Keyspace | {}",
 					"localhost", DBConstants.KEYSPACE);
 			cluster = Cluster
@@ -52,12 +73,96 @@ public class DBConnection implements IDBConnection {
 					.withLoadBalancingPolicy(
 							new TokenAwarePolicy(new DCAwareRoundRobinPolicy()))
 					.build();
-			session = cluster.connect(DBConstants.KEYSPACE);
-			manager = new MappingManager(session);
-		}
-		LOGGER.info("Connected to cluster on host | {} | Keyspace | {}",
-				"localhost", DBConstants.KEYSPACE);
+			try {
+				session = cluster.connect(DBConstants.KEYSPACE);
+				isConnected = true;
+				manager = new MappingManager(session);
+			} catch (NoHostAvailableException e) {
+				handleConnectionException(retryAttempts, retryCount);
+				LOGGER.debug(
+						"NoHostAvailableException thrown | Exception Message | {}",
+						e.getLocalizedMessage());
+			} catch (AuthenticationException e) {
+				handleConnectionException(retryAttempts, retryCount);
+				LOGGER.debug(
+						"AuthenticationException thrown | Exception Message | {}",
+						e.getLocalizedMessage());
+			} catch (InvalidQueryException e) {
+				handleConnectionException(retryAttempts, retryCount);
+				LOGGER.debug(
+						"InvalidQueryException thrown | Exception Message | {}",
+						e.getLocalizedMessage());
+			} catch (IllegalStateException e) {
+				handleConnectionException(retryAttempts, retryCount);
+				LOGGER.debug(
+						"IllegalStateException thrown | Exception Message | {}",
+						e.getLocalizedMessage());
+			}
 
+			if (!isConnected) {
+
+				try {
+					Thread.sleep(retryDelay);
+				} catch (InterruptedException e) {
+					LOGGER.warn("Retry failed | {}", e.getLocalizedMessage());
+				}
+			}
+		}
+
+		if (isConnected) {
+			LOGGER.info("Connected to cluster on host | {} | Keyspace | {}",
+					"localhost", DBConstants.KEYSPACE);
+		}
+
+	}
+
+	private static int getRetryAttempts(String numRetries) {
+		int retryAttempts = DEFAULT_MAX_RETRIES;
+		if (numRetries != null && numRetries.length() > 0) {
+			try {
+				retryAttempts = Integer.parseInt(numRetries);
+			} catch (NumberFormatException e) {
+				LOGGER.warn(
+						"Invalid property value | {} | for property | {} | expected integer value | defaulting to MAX_RETRIES (3)",
+						numRetries, Configuration.DB_CONNECT_RETRY_ATTEMPTS);
+			}
+		}else{
+			LOGGER.warn(
+					"Property {} not defined. Defaulting to MAX_RETRIES (3)",
+					Configuration.DB_CONNECT_RETRY_ATTEMPTS);
+		}
+		return retryAttempts;
+	}
+
+	private static int getRetryDelay(String retryInSecs) {
+		int delay = DEFAULT_DELAY;
+		if (retryInSecs != null && retryInSecs.length() > 0) {
+			try {
+				delay = Integer.parseInt(retryInSecs);
+			} catch (NumberFormatException e) {
+				LOGGER.warn(
+						"Invalid property value | {} | for property | {} | expected integer value | Defaulting to DEFAULT_RETRY_DELAY of 10 milliseconds",
+						retryInSecs,
+						Configuration.DB_CONNECT_RETRY_DELAY);
+			}
+		}else{
+			LOGGER.warn(
+					"Property {} not defined. Defaulting to DEFAULT_RETRY_DELAY of 10 milliseconds",
+					Configuration.DB_CONNECT_RETRY_DELAY);
+		}
+		return delay;
+	}
+
+	private void handleConnectionException(int retryAttempts, int retryCount) {
+		if (retryCount < retryAttempts) {
+			LOGGER.warn(
+					"Database connection failed | retrying in | {} | milliseconds",
+					retryDelay);
+		} else {
+			LOGGER.error(LogConstants.MARKER_FATAL,
+					"Database connection failed. application will exit");
+			System.exit(0);
+		}
 	}
 
 	public ResultSet getResultSet(String tableName) {
