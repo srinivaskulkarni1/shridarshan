@@ -3,6 +3,8 @@ package com.shridarshan.in.data;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -20,9 +22,12 @@ public class DataLoader implements ApplicationContextAware, IDataLoader {
 
 	private AbstractApplicationContext context;
 	private IDBConnection dbConnection;
+	private static Logger LOGGER = LoggerFactory.getLogger(DataLoader.class);
+
 
 	@Override
 	public List<ITemple> getTempleList() {
+		LOGGER.debug("Processing {}.getTempleList", DataLoader.class.getSimpleName());
 
 		dbConnection = getDBConnection();
 
@@ -41,6 +46,8 @@ public class DataLoader implements ApplicationContextAware, IDataLoader {
 				}
 			}
 		}
+		LOGGER.debug("Processed {}.getTempleList", DataLoader.class.getSimpleName());
+
 		return templeList;
 	}
 

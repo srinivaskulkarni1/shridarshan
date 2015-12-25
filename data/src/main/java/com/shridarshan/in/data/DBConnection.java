@@ -1,5 +1,8 @@
 package com.shridarshan.in.data;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.ResultSet;
 import com.datastax.driver.core.Session;
@@ -16,6 +19,7 @@ public class DBConnection implements IDBConnection {
 	private Cluster cluster;
 	private Session session;
 	private MappingManager manager;
+	private static Logger LOGGER = LoggerFactory.getLogger(DBConnection.class);
 
 	@Override
 	public MappingManager getManager() {
@@ -25,7 +29,11 @@ public class DBConnection implements IDBConnection {
 	@Override
 	public Session getSession() {
 		if (session == null) {
+			LOGGER.debug("Initializing {}.Session",
+					DBConnection.class.getSimpleName());
 			connect();
+			LOGGER.debug("Initialized {}.Session",
+					DBConnection.class.getSimpleName());
 		}
 		return session;
 	}
@@ -35,6 +43,8 @@ public class DBConnection implements IDBConnection {
 	public void connect() {
 
 		if (cluster == null) {
+			LOGGER.info("Initializing database on host | {} | Keyspace | {}",
+					"localhost", DBConstants.KEYSPACE);
 			cluster = Cluster
 					.builder()
 					.addContactPoint("localhost")
@@ -45,12 +55,21 @@ public class DBConnection implements IDBConnection {
 			session = cluster.connect(DBConstants.KEYSPACE);
 			manager = new MappingManager(session);
 		}
+		LOGGER.info("Connected to cluster on host | {} | Keyspace | {}",
+				"localhost", DBConstants.KEYSPACE);
 
 	}
 
 	public ResultSet getResultSet(String tableName) {
+		LOGGER.info("Processing {}.getResultSet | table | {}",
+				DBConnection.class.getSimpleName(), tableName);
 		Statement select = QueryBuilder.select().all().from(tableName);
-		return getSession().execute(select);
+		ResultSet rs;
+		rs = getSession().execute(select);
+		LOGGER.info(
+				"Processed {}.getResultSet | table | {} | rows returned | {}",
+				DBConnection.class.getSimpleName(), tableName, rs.all().size());
+		return rs;
 
 	}
 

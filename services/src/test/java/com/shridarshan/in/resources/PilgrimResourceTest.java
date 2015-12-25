@@ -2,11 +2,14 @@ package com.shridarshan.in.resources;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,14 +44,17 @@ public class PilgrimResourceTest {
 	@Test
 	public void testGetPilgrimPlaces(){
 		List<ITemple> templeList = TestData.getDummyTempleList();
+		HttpServletRequest request = Mockito.mock(HttpServletRequest.class);
 		
 		when(context.getBean(BeanConstants.TEMPLE_SERVICE)).thenReturn(service);
 		when(service.getTempleList()).thenReturn(templeList);
+		when(request.getRemoteAddr()).thenReturn("127.0.0.1");
 		
-		assertEquals(pilgrimResource.getPligrimPlaces(), templeList);
+		assertEquals(pilgrimResource.getPligrimPlaces(null, request, null), templeList);
 
 		verify(context, times(1)).getBean(BeanConstants.TEMPLE_SERVICE);
-		verify(service, timeout(1)).getTempleList();
+		verify(service, times(1)).getTempleList();
+		verify(request, times(1)).getRemoteAddr();
 	}
 	
 }

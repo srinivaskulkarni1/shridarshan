@@ -67,9 +67,21 @@
 			<artifactId>spring-webmvc</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>commons-logging</groupId>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>			
+		</dependency>	
+		<dependency>
+			<groupId>commons-logging</groupId> 
 			<artifactId>commons-logging</artifactId>
+		</dependency>				
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+		</dependency>			
 	</dependencies>
 
 	<properties>
