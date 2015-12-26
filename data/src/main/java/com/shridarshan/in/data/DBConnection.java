@@ -172,8 +172,8 @@ public class DBConnection implements IDBConnection {
 		ResultSet rs;
 		rs = getSession().execute(select);
 		LOGGER.info(
-				"Processed {}.getResultSet | table | {} | rows returned | {}",
-				DBConnection.class.getSimpleName(), tableName, rs.all().size());
+				"Processed {}.getResultSet | table | {}",
+				DBConnection.class.getSimpleName(), tableName);
 		return rs;
 
 	}

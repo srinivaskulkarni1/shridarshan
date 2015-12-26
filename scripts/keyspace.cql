@@ -1,6 +1,6 @@
 DROP KEYSPACE IF EXISTS shridarshan;
 
-CREATE KEYSPACE shridarshan WITH replication = {'class':'SimpleStrategy', 'replication_factor':1};
+CREATE KEYSPACE shridarshan WITH replication = {'class':'SimpleStrategy', 'replication_factor':3};
 
 USE shridarshan;
 
